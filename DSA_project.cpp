@@ -755,6 +755,10 @@ public:
                             if(parcel->delivered == true){
                                 return true;
                             }
+                            if(parcel->time_tick != it.first){
+                                this->parcels_with_time_tick[parcel->time_tick].push_back(parcel);
+                                return true;
+                            }
                             return false;
                         }),
                         parcels.end());
